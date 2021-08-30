@@ -1,4 +1,4 @@
-# GPU-Skaling-in-AMD-Catalyst-with-AspectRatio
+# GPU_Scaling_AspectRatio_Turn_OnOff
 Should be able to activate GPU-Scaling silent through VBS-Script (Aspect Ratio).
 
 I'm aware of VBS is outdated but as advantage there is to say, you can change settings silent and Code is always open-source.
