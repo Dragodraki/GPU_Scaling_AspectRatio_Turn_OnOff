@@ -7,7 +7,7 @@ Many people said this wouldn't be possible - here I am to prove they were wrong 
 WARNING - AWARE WHAT YOU DO
 -------------------------------
 Short form:
-- Use the app at your own risk!
+(-) Use the app at your own risk!
 - Please only use the ready release and NOT the Source (reasons below)!
 - Don't re-upload with your name as programmer.
 - Don't sell it as product!
