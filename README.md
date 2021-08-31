@@ -47,12 +47,12 @@ And this means that my app is not able to replace your graphics card manufacture
 -------------------------------
 SUPPORTED GPUs
 -------------------------------
-- ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
-- ( work ) AMD Radeon
-- ( work ) AMD Adrenalin
-- ( work ) Intel Graphics Control Panel
-- ( work ) Nvidia Control Panel
-- ( ???? ) Nvidia GeForce Experience
+-  ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
+-  ( work ) AMD Radeon
+-  ( work ) AMD Adrenalin
+-  ( work ) Intel Graphics Control Panel
+-  ( work ) Nvidia Control Panel
+-  ( ????? ) Nvidia GeForce Experience
 
 -------------------------------
 USAGE
