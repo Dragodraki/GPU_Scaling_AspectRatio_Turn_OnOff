@@ -39,3 +39,4 @@ For future I'd like to improve the code so thats work for mostly every great gra
 USAGE
 -------------------------------
 1. Download the release (or the EXE files from branch) and execute it (need admin rights).
+2. Ready - be happy and start apps with fixed aspect ratio :D
