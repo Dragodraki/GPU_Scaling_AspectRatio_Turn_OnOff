@@ -1,4 +1,4 @@
-# GPU_Scaling_AspectRatio_Turn_OnOff
+Title # GPU_Scaling_AspectRatio_Turn_OnOff
 Should be able to activate GPU-Scaling silent through VBS-Script (Aspect Ratio).
 
 -------------------------------
