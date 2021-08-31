@@ -47,6 +47,8 @@ And this means that my app is not able to replace your graphics card manufacture
 -------------------------------
 SUPPORTED GPUs
 -------------------------------
+Note: Proper gpu driver needs to be installed.
+
 - ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
 - ( work ) AMD Radeon
 - ( work ) AMD Adrenalin
