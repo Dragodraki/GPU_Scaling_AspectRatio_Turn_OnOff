@@ -7,7 +7,12 @@ Many people said this wouldn't be possible - here I am to prove they were wrong 
 WARNING - AWARE WHAT YOU DO
 -------------------------------
 Short form:
-Use the app at your own risk! And please only use the ready release and NOT the Source!
+- Use the app at your own risk!
+- Please only use the ready release and NOT the Source (reasons below)!
+- Don't re-upload with your name as programmer.
+- Don't sell it as product!
++ Commcercial usage is allowed ;)
++ Free Distribution to friends or strangers is allowed, even wanted ;)
 
 Long explanation: 
 
@@ -19,7 +24,8 @@ But now let's focus to that piece of code:
 It will change a few special registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the Graphiccard GUI manager without admin rights but only because there is a service installed it allows you to do so. 
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
-One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)" and "PScript". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either use it for commercial purposes or repacking it and distribute it in your name - so does the terms of the third-party-apps do! ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS I ASSUME NO LIABILITY!
+One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)" and "PScript". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
+ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS I ASSUME NO LIABILITY!
 
 -------------------------------
 WHY I MADE THIS SCRIPT?
