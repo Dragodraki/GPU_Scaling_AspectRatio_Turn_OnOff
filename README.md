@@ -8,7 +8,7 @@ WARNING - AWARE WHAT YOU DO
 -------------------------------
 Short form:
 - Use the app at your own risk!
-- Please only use the ready release and NOT the Source (reasons below)!
+- Please only work with the ready release and NOT the Source (may crash your system and cause data loss)!
 - Don't re-upload with your name as programmer.
 - Don't sell it as product!
 + Commcercial usage is allowed ;)
