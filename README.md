@@ -4,9 +4,10 @@ Should be able to activate GPU-Scaling silent through VBS-Script (Aspect Ratio).
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
-Use the app at your own risk!
-For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
-If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons!
+Short form: Use the app at your own risk! And please only use the ready release and NOT the Source!
+
+Long explanation: For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
+The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! You're warned.
 So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe).
 
 
