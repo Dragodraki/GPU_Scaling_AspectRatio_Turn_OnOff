@@ -1,5 +1,5 @@
 # What for is "GPU_Scaling_AspectRatio_Turn_OnOff"?
-Should be able to activate GPU-Scaling silent through VBS-Script (Aspect Ratio).
+Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether you use a GPU from Nvidia, AMD or Intel and independent of whether full driver manager software is installed or only the driver.
 
 -------------------------------
 WARNING - AWARE WHAT YOU DO
