@@ -43,6 +43,10 @@ The setting whether GPU scaling is enabled or disabled (GPU scaling versus displ
 My software does practically nothing else than to predefine the entries for scaling at the various places in the registry for the most popular graphics card manufacturers, so that the driver reads this entry and loads the appropriate setting - hence the reloading of the graphics card becomes so important.
 And this means that my app is not able to replace your graphics card manufacturer's driver, without GPU driver installed my app is useless. Nevertheless, finding out the places in the registry that are responsible for scaling was very difficult, especially since the AMD/Nvidia/Intel didn't want to help me develop this background app. So consider it a small milestone in screen history that it now works without the oh-so-great interface software from the big-name manufacturers.
 
+-------------------------------
+SPECIAL THANKS
+-------------------------------
+I'm so glad this project become so very much smoothly because of your tools. Thank you ToastyX, Nenad and Robert D. Riemersma, Jr! Without your help my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version microsofts vbs scripting host.
 
 -------------------------------
 SUPPORTED GPUs
