@@ -34,6 +34,16 @@ WHY I MADE THIS SCRIPT?
 I tried to find a solution to make old games fitting the screen perfectly on new widescreen monitors without manually change it in AMD/Nvidia/Intel.
 For future I'd like to improve the code so thats work for mostly every great graphic manufacturer software.
 
+-------------------------------
+HOW IT WORKS TECHNICALLY:
+-------------------------------
+The settings for the screen are managed by Windows as well as by drivers of the graphics card. The selected mode of enabled scaling (maintained be ratio/centered/full screen) is always controlled by Windows without exception - this setting is always stored in the same place in the registry.
+The setting whether GPU scaling is enabled or disabled (GPU scaling versus display scaling) is up to the graphics card software or driver. Depending on whether the graphics card is from Nvidia/AMD/Intel and which driver/control center version is installed, this setting is located in a different place in the registry each time, which is not permanently defined.
+
+My software does practically nothing else than to predefine the entries for scaling at the various places in the registry for the most popular graphics card manufacturers, so that the driver reads this entry and loads the appropriate setting - hence the reloading of the graphics card becomes so important.
+
+Translated with www.DeepL.com/Translator (free version)
+
 
 -------------------------------
 USAGE
