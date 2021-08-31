@@ -1,8 +1,0 @@
-WARNING!
-
-Source parts are not stable yet. It's not uncommon that windows will stuck and completely freezes everything if VBS is executed as standalone!!!
-On my computer it happened already :(
-Additionally VBS cannot handle the GPU reload as long as wscript.exe isn't in the same directory as VBS-script.
-Beside, your GPO has to allow VBS and wscript.exe, any other case might lead into fail.
-
-Third-Party-Apps aren't included since I don't believe I've any rights to let it seem is I've written these fantastic tools. 
