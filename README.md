@@ -1,6 +1,8 @@
 # What for is "GPU_Scaling_AspectRatio_Turn_OnOff"?
 Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether you use a GPU from Nvidia, AMD or Intel and independent of whether full driver manager software is installed or only the driver.
 
+Many people said this wouldn't be possible - here I prove they were wrong ;)
+
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
@@ -10,12 +12,9 @@ Long explanation: For your own safety, I strongly recommend to use only the read
 The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! You're warned.
 So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe).
 
-
-
 But now let's focus to that piece of code:
-It will change a few special registry entries under HKLM\SYSTEM to apply these changes for AMD Catalyst (maybe for newer versions too, I didn't test it so far). So you'll need admin rights to perform this action. Of course you can do it in AMD's GUI without admin rights but only because there is a service installed it allows you to do so. 
-After result, a reboot is required (alternatively execute "Custom Resolution Utility (CRU)" by ToastyX. When AMD loads it's Manager (here ccc.exe), you'll see, GPU-Scaling activated and the mode "Aspect Ratio" is chosen.
-Many people said this wouldn't be possible - here I prove they were wrong ;)
+It will change a few special registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the Graphiccard GUI manager without admin rights but only because there is a service installed it allows you to do so. 
+After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
 
 -------------------------------
