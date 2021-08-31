@@ -1,7 +1,15 @@
 # GPU_Scaling_AspectRatio_Turn_OnOff
 Should be able to activate GPU-Scaling silent through VBS-Script (Aspect Ratio).
 
-I'm aware of VBS is outdated but as advantage there is to say, you can change settings silent and Code is always open-source.
+-------------------------------
+WARNING - AWARE WHAT YOU DO
+-------------------------------
+Use the app at your own risk!
+For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
+If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons!
+So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe).
+
+
 
 But now let's focus to that piece of code:
 It will change a few special registry entries under HKLM\SYSTEM to apply these changes for AMD Catalyst (maybe for newer versions too, I didn't test it so far). So you'll need admin rights to perform this action. Of course you can do it in AMD's GUI without admin rights but only because there is a service installed it allows you to do so. 
