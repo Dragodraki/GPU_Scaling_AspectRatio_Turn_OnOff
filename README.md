@@ -42,9 +42,6 @@ The setting whether GPU scaling is enabled or disabled (GPU scaling versus displ
 
 My software does practically nothing else than to predefine the entries for scaling at the various places in the registry for the most popular graphics card manufacturers, so that the driver reads this entry and loads the appropriate setting - hence the reloading of the graphics card becomes so important.
 
-Translated with www.DeepL.com/Translator (free version)
-
-
 -------------------------------
 USAGE
 -------------------------------
