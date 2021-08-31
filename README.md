@@ -32,13 +32,10 @@ ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS I ASSUME NO LIABILITY!
 WHY I MADE THIS SCRIPT?
 -------------------------------
 I tried to find a solution to make old games fitting the screen perfectly on new widescreen monitors without manually change it in AMD/Nvidia/Intel.
-For future I'd like to optimize the code so thats work for mostly every great graphic manufacturer software.
+For future I'd like to improve the code so thats work for mostly every great graphic manufacturer software.
 
 
 -------------------------------
 USAGE
 -------------------------------
-1. Optional (but recommended): Copy "wscript.exe" from C:\Windows\System32 in one of your profile folder and mark under compatibillity options the "Run As Administrator".
-2. Drag the VBS and drop it over your new "wscript.exe" from step 1 and apply UAC (if UAC is enabled)
-3. Script is ready within a few millisecconds. You won't see any difference, because it works silent. You have to reboot your computer or execute "Custom Resolution Utility (CRU)" by ToastyX to settings take effect.
-4. Run an old game with e.g. 4:3 or 3:2 scale and see it working.
+1. Download the release (or the EXE files from branch) and execute it (need admin rights).
