@@ -14,6 +14,7 @@ Short form:
 + Commcercial usage is allowed ;)
 + Free Distribution to friends or strangers is allowed, even wanted ;)
  
+  
 Long explanation: 
 
 For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
