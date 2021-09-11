@@ -18,14 +18,14 @@ Short form:
 Long explanation: 
 
 For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
-The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! You're warned.
+The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release rarely frozen start menu in Windows 10+ could happen (no solution fof that). You're warned.
 So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe).
 
 But now let's focus to that piece of code:
 It will change a few special registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the Graphiccard GUI manager without admin rights but only because there is a service installed it allows you to do so. 
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
-One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)" and "PScript". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
+One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
 ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS I ASSUME NO LIABILITY!
 
 -------------------------------
@@ -46,7 +46,7 @@ And this means that my app is not able to replace your graphics card manufacture
 -------------------------------
 SPECIAL THANKS
 -------------------------------
-I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad and Robert D. Riemersma, Jr! Without your help my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version microsofts vbs scripting host.
+I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad and Robert D. Riemersma Jr and Helge Klein! Without your help my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
 
 -------------------------------
 SUPPORTED GPUs
@@ -57,8 +57,8 @@ Note: Proper gpu driver needs to be installed.
 - ( work ) AMD Radeon
 - ( work ) AMD Adrenalin
 - ( work ) Intel Graphics Control Panel
-- ( work ) Nvidia Control Panel
-- ( ????? ) Nvidia GeForce Experience
+- ( work ) Nvidia Control Panel (old)
+- ( work ) Nvidia Control Panel (new)
 
 -------------------------------
 USAGE
