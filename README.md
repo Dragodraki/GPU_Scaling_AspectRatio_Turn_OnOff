@@ -58,7 +58,7 @@ Note: Proper gpu driver needs to be installed.
 - ( work ) AMD Adrenalin
 - ( work ) Intel Graphics Control Panel
 - ( work ) Nvidia Control Panel (old)
-- ( work ) Nvidia Control Panel (new)
+- ( work ) Nvidia Control Panel (new - at least until 2021)
 
 -------------------------------
 USAGE
