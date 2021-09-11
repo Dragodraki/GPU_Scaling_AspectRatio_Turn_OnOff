@@ -18,8 +18,8 @@ Short form:
 Long explanation: 
 
 For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
-The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release rarely frozen start menu in Windows 10+ could happen (no solution fof that). You're warned.
-So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe).
+The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release leads in rarely cases to frozen start menu in Windows 10+ could happen until reboot (no solution implemented so far because of unpredictable appearing the fix's couldn't tested enough). You're warned.
+So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe). When it comes to frozen start menu, please restart the explorer or reboot your computer.
 
 But now let's focus to that piece of code:
 It will change a few special registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the Graphiccard GUI manager without admin rights but only because there is a service installed it allows you to do so. 
