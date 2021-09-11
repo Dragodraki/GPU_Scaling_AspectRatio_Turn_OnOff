@@ -56,10 +56,10 @@ Note: Proper gpu driver needs to be installed.
 - ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
 - ( work ) AMD Radeon
 - ( work ) AMD Adrenalin
-- ( work ) Intel Graphics Control Panel (old software)
-- ( work ) Intel Graphics Control Panel (new software)
-- ( work ) Nvidia Control Panel (old software)
-- ( work ) Nvidia Control Panel (new software - at least until 2021)
+- ( work ) Intel Graphics Control Panel (old interface)
+- ( work ) Intel Graphics Control Panel (new interface)
+- ( work ) Nvidia Control Panel (old interface)
+- ( work ) Nvidia Control Panel (new interface - at least until 2021)
 
 -------------------------------
 USAGE
