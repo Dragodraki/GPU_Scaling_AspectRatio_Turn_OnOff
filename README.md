@@ -46,7 +46,7 @@ And this means that my app is not able to replace your graphics card manufacture
 -------------------------------
 SPECIAL THANKS
 -------------------------------
-I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad and Robert D. Riemersma Jr and Helge Klein! Without your help my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
+I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad and Robert D. Riemersma Jr and Helge Klein! Without your helpful tools my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
 
 -------------------------------
 SUPPORTED GPUs
