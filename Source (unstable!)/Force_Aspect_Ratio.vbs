@@ -821,6 +821,264 @@ End if
 
 
 '--------------------------------------
+' Intel
+
+sKeyPath = "SYSTEM\ControlSet001\Services\ialm"
+
+oReg.EnumKey cHKLM, sKeyPath, aSubKeys
+If Not (isnull(aSubKeys)) Then
+    For Each sSubkey In aSubKeys
+        if Left(sSubkey, 6) = "Device" then
+        sTmpKeyName1 = sKeyPath & "\" & sSubKey
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName1 & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName1 & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+               	rReg.EnumValues cHKLM, sTmpKeyName1, dSubKeys
+               	If Not (isnull(dSubKeys)) Then
+               	For Each oSubkey In dSubKeys
+	     	if oSubkey = "PreferredDisplayScaling" then
+		' HIERBEI KEIN VERMERK ZUP RELOAD DER GPU MACHEN!!!
+		' Weil Intel die Werte immer neu erstellt und nur neu lädt, falls sie gelöscht werden, würde dies sonst dazu führen, dass die GPU jedes Mal neu gestartet wird - ganz gleich ob die GPU-Einstellung schon vorher richtig war oder nicht! Also lösche ich diese Registry-Werte einfach ohne GPU-Reload, der Indikator für einen notwendigen GPU-Reload liegt für Intel nur unter "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"! Das reicht aus.
+	     	sTmpValueName =  sTmpKeyName1 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName 
+
+	    	path = sTmpKeyName1
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	Next
+	     	End if
+
+        End if
+    Next
+End if
+
+sKeyPath = "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"
+
+oReg.EnumKey cHKLM, sKeyPath, aSubKeys
+If Not (isnull(aSubKeys)) Then
+    For Each sSubkey In aSubKeys
+        sTmpKeyName1 = sKeyPath & "\" & sSubKey
+        pReg.EnumKey cHKLM, sTmpKeyName1, bSubKeys
+        If Not (isnull(bSubKeys)) Then
+        For Each tSubkey In bSubKeys
+	if tSubkey = "00" then
+	sTmpKeyName2 =  sTmpKeyName1 & "\" & tSubkey & "\00"
+	'msgbox sTmpKeyName2
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName2 & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName2 & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+               	rReg.EnumValues cHKLM, sTmpKeyName2, cSubKeys
+               	If Not (isnull(cSubKeys)) Then
+               	For Each oSubkey In cSubKeys
+
+		' HIERBEI KEIN VERMERK ZUP RELOAD DER GPU MACHEN!!!
+		' Weil Intel die Werte immer neu erstellt und nur neu lädt, falls sie gelöscht werden, würde dies sonst dazu führen, dass die GPU jedes Mal neu gestartet wird - ganz gleich ob die GPU-Einstellung schon vorher richtig war oder nicht! Also lösche ich diese Registry-Werte einfach ohne GPU-Reload, der Indikator für einen notwendigen GPU-Reload liegt für Intel nur unter "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"! Das reicht aus.
+
+	     	if oSubkey = "DwmClipBox.bottom" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.left" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.right" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.top" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+        Next
+        End if
+        End if
+        Next
+        End if
+    Next
+End if
+
+
+'--------------------------------------
+' Intel
+
+sKeyPath = "SYSTEM\CurrentControlSet\Services\ialm"
+
+oReg.EnumKey cHKLM, sKeyPath, aSubKeys
+If Not (isnull(aSubKeys)) Then
+    For Each sSubkey In aSubKeys
+        if Left(sSubkey, 6) = "Device" then
+        sTmpKeyName1 = sKeyPath & "\" & sSubKey
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName1 & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName1 & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+               	rReg.EnumValues cHKLM, sTmpKeyName1, dSubKeys
+               	If Not (isnull(dSubKeys)) Then
+               	For Each oSubkey In dSubKeys
+	     	if oSubkey = "PreferredDisplayScaling" then
+		' HIERBEI KEIN VERMERK ZUP RELOAD DER GPU MACHEN!!!
+		' Weil Intel die Werte immer neu erstellt und nur neu lädt, falls sie gelöscht werden, würde dies sonst dazu führen, dass die GPU jedes Mal neu gestartet wird - ganz gleich ob die GPU-Einstellung schon vorher richtig war oder nicht! Also lösche ich diese Registry-Werte einfach ohne GPU-Reload, der Indikator für einen notwendigen GPU-Reload liegt für Intel nur unter "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"! Das reicht aus.
+	     	sTmpValueName =  sTmpKeyName1 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName 
+
+	    	path = sTmpKeyName1
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	Next
+	     	End if
+
+        End if
+    Next
+End if
+
+sKeyPath = "SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Configuration"
+
+oReg.EnumKey cHKLM, sKeyPath, aSubKeys
+If Not (isnull(aSubKeys)) Then
+    For Each sSubkey In aSubKeys
+        sTmpKeyName1 = sKeyPath & "\" & sSubKey
+        pReg.EnumKey cHKLM, sTmpKeyName1, bSubKeys
+        If Not (isnull(bSubKeys)) Then
+        For Each tSubkey In bSubKeys
+	if tSubkey = "00" then
+	sTmpKeyName2 =  sTmpKeyName1 & "\" & tSubkey & "\00"
+	'msgbox sTmpKeyName2
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName2 & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpKeyName2 & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+               	rReg.EnumValues cHKLM, sTmpKeyName2, cSubKeys
+               	If Not (isnull(cSubKeys)) Then
+               	For Each oSubkey In cSubKeys
+
+		' HIERBEI KEIN VERMERK ZUP RELOAD DER GPU MACHEN!!!
+		' Weil Intel die Werte immer neu erstellt und nur neu lädt, falls sie gelöscht werden, würde dies sonst dazu führen, dass die GPU jedes Mal neu gestartet wird - ganz gleich ob die GPU-Einstellung schon vorher richtig war oder nicht! Also lösche ich diese Registry-Werte einfach ohne GPU-Reload, der Indikator für einen notwendigen GPU-Reload liegt für Intel nur unter "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"! Das reicht aus.
+
+	     	if oSubkey = "DwmClipBox.bottom" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.left" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.right" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+	     	if oSubkey = "DwmClipBox.top" then
+	     	sTmpValueName =  sTmpKeyName2 & "\" & oSubkey	 
+	     	'msgbox sTmpValueName     
+	    	Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+	    	path = sTmpKeyName2
+		Return = oReg.DeleteValue(cHKLM, path, oSubkey)
+	    	If (Return = 0) And (Err.Number = 0) Then
+    	    		'msgbox "Binary value added successfully"
+	    		Else
+    	    		' An error occurred
+    	    		'msgbox "Binary could not be added!"
+	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
+	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+
+        Next
+        End if
+        End if
+        Next
+        End if
+    Next
+End if
+
+
+'--------------------------------------
 'ALLE HERSTELLER
 
 sKeyPath = "SYSTEM\ControlSet001\Control\GraphicsDrivers\Configuration"
@@ -989,6 +1247,30 @@ Sleep "5000"	'Sleep-Modus exklusiv für "PScript.exe" (= Portable VBS)
 WScript.Sleep "5000"	'Sleep-Modus für windowseigenen Script-Host "wscript.exe" und "cscript.exe"
 
 
+' Starte Windows-Explorer bei Windows 10 oder höher neu
+Set dtmConvertedDate = CreateObject("WbemScripting.SWbemDateTime")
+strComputer = "."
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+Set oss = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+Set dtmConvertedDate = CreateObject("WbemScripting.SWbemDateTime")
+strComputer = "."
+Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+Set oss = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+For Each os in oss
+  value = os.Version
+NewStringWindowsVersion="."
+MajorWindowsVersion=left(value, instr(value, NewStringWindowsVersion)-1)
+'msgbox MajorWindowsVersion
+MajorWindowsVersion = MajorWindowsVersion + 100000090
+if MajorWindowsVersion < "100000100" then
+else
+'msgbox "Windows 10"
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run Chr(34) & "Rexplorer.exe" & Chr(34) & "", 0, False
+end if
+Next
+
+
 strComputer = "."
 Set objWMIService = GetObject("winmgmts:" _
 & "{impersonationLevel=impersonate}!\\" _
@@ -1016,7 +1298,6 @@ End if
 ' ! Wartezeit, sehr wichtig
 Sleep "5000"	'Sleep-Modus exklusiv für "PScript.exe" (= Portable VBS)
 WScript.Sleep "5000"	'Sleep-Modus für windowseigenen Script-Host "wscript.exe" und "cscript.exe"
-
 
 
 ' --- Wiederherstellen der Desktop-Icon-Position mit zusätzlichem Programm
