@@ -4,6 +4,9 @@ Custom Resolution Utility (CRU)
 Able to restart most graphic cards, not work under Windows XP or
 with old Intel GPUs
 
+If you use virtual machines with VMware, shutdown/pause/suspend them before
+clicking one of the EXEs, otherwise they'll crash during restarting GPU!!!
+
 https://www.monitortests.com/download/cru/cru-1.5.1.zip
 
 Command-line options:
