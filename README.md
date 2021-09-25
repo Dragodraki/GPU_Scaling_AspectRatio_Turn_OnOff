@@ -3,7 +3,7 @@ Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether 
 
 Many people said this wouldn't be possible - here I am to prove they were wrong ;)
 
-IMPORTANT -> For people using VMware or ESXI (software for using virtual machines): Before starting the EXE please shutdown/pause/suspend all open virtual machines. Alle not closed VMware VMs will crash during restarting the graphic adapter so that data loss will happen! If you not use VMware or shutdowned/paused/suspended them you'll be fine!
+IMPORTANT -> For people using VMware or ESXI (software for using virtual machines): Before starting the EXE please shutdown/pause/suspend all open virtual machines. Alle not closed VMware VMs will crash during restarting the graphic adapter so that data loss will happen! If you have not installed VMware or shutdowned/paused/suspended them you'll be fine!
 
 -------------------------------
 WARNING - AWARE WHAT YOU DO
