@@ -3,6 +3,8 @@ Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether 
 
 Many people said this wouldn't be possible - here I am to prove they were wrong ;)
 
+IMPORTANT -> For people using VMware or ESXI (software for using virtual machines): Before starting the EXE please shutdown/pause/suspend all open virtual machines. Alle not closed VMware VMs will crash during restarting the graphic adapter so that data loss will happen! If you not use VMware or shutdowned/paused/suspended them you'll be fine!
+
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
@@ -19,7 +21,7 @@ Long explanation:
 
 For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
 The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 almost fixed). You're warned.
-So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe). When it comes to frozen start menu, please restart the explorer or reboot your computer.
+So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe). When it comes to frozen start menu, please restart the explorer or reboot your computer. And if you use VMware for virtual machines: Before starting the EXE please shutdown/pause/suspend all open virtual machines (CRU from Toasty crashes all VMware VMs so there might be data loss!)
 
 But now let's focus to that piece of code:
 It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. 
