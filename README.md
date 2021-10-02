@@ -59,7 +59,7 @@ I'm so glad this project become so much smoothier because of your tools. Thank y
 -------------------------------
 SUPPORTED GPUs
 -------------------------------
-Note: Proper gpu driver needs to be installed.
+Note: Proper gpu driver needs to be installed. And OS older than Windows Vista haven't prerequisites for scaling with this tool.
 
 - ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
 - ( work ) AMD Radeon
