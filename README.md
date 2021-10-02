@@ -3,8 +3,6 @@ Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether 
 
 Many people said this wouldn't be possible - here I am to prove they were wrong ;)
 
-ä
-
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
