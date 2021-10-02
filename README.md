@@ -3,14 +3,12 @@ Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether 
 
 Many people said this wouldn't be possible - here I am to prove they were wrong ;)
 
-IMPORTANT -> For people using VMware or ESXI (software for using virtual machines): Before starting the EXE please shutdown/pause/suspend all open virtual machines. Alle not closed VMware VMs will crash during restarting the graphic adapter so that data loss will happen! If you have not installed VMware or shutdowned/paused/suspended them you'll be fine!
-
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
 Short form:
 - Use the app at your own risk!
-- Please only work with the ready release and NOT the Source (may crash your system and cause data loss)!
+- Please only work with the latest release and NOT older releases NOR the Source (may crash your system and cause data loss - I'm serious)!
 - Don't re-upload with your name as programmer.
 - Don't sell it as product!
 + Commcercial usage is allowed ;)
@@ -19,16 +17,16 @@ Short form:
 
 Long explanation: 
 
-For your own safety, I strongly recommend to use only the ready EXE. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
-The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 almost fixed). You're warned.
-So: Please use only the finished EXE file (relatively stable) and not parts from the source (unsafe). When it comes to frozen start menu, please restart the explorer or reboot your computer. And if you use VMware for virtual machines: Before starting the EXE please shutdown/pause/suspend all open virtual machines (CRU from Toasty crashes all VMware VMs so there might be data loss!)
+For your own safety, I strongly recommend to use only the ready EXE of the latest release. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
+The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed) and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
 
 But now let's focus to that piece of code:
 It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. 
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
 One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
-ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS I ASSUME NO LIABILITY!
+
+ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS OR DAMAGE TO YOUR SYSTEM BY MY SOFTWARE I ASSUME NO LIABILITY!
 
 -------------------------------
 WHY I MADE THIS SCRIPT?
@@ -51,6 +49,7 @@ Additionally there are a few tools that saves you from suffering from unwanted s
 - "PScript" is an alternative for the microsoft scripting host (player for VBS files). It works great on newer operating systems like Windows Vista and higher. FOr Windows 2000 and XP the old wscript.exe from microsoft will be used.
 - "Custom Resolution Utility (CRU)" - yeah - thats mostly the key function for the undeniable advantage that your computer doesn't need to reboot after changing your graphic cards driver settings. Of course, AMD, Intel and Nvidia could bypass them easily as they are the inventor od their driver and know some seret approaches to them we'll never get to explained. But CRU has the power to adapt it's behaviour in disable and enable your graphic card in device manager from command line. But instead of manual doing they do it a little safer so there is no risk the display won't awake from blackness after this. For your information: Until now, no other free tool exists that can perform that!
 - "Rexplorer" preempts problems related to Start menu/app windows/taskbar by killing all processes called "explorer.exe" and restart them with restoring all instances of Windows-Explorer / system control. On all OS before Windows 8 it interrupts also any file copying. How lucky we must be, start menu freezing only happends on Windows 10, so Rexplorer don't harm any open copy process (it only closes the progress window). On older OS my App don't use Rexplorer.
+- "vmrun" from VMware shouldn't named here actually since I have to use it only for taking prevention of heavy crashing VMware VM's when running ToastyX "restart.exe" (reloads the GPU). But the software is very powerful when it comes to handle the VM's silently. Sorry about the short console window appearing, but to make it invisible would costs disproportionate too much effort for me right now (maybe in the future).
 
 -------------------------------
 SPECIAL THANKS
