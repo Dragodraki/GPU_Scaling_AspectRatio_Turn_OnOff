@@ -1236,6 +1236,41 @@ Set objShell = CreateObject("WScript.Shell")
 objShell.Run Chr(34) & RIGHTHERE & "DesktopOK\DesktopOK.exe" & Chr(34) & " /save /silent " & Chr(34) & TEMP & "\DesktopOK\Profiles\DesktopOKProfile.dok" & Chr(34), 0, True
 
 
+' --- Pausiere aktive VMware-VMs, um Abstürze zu verhindern
+' delete earlier txt file, if not happened yet
+Set fs = CreateObject("Scripting.Filesystemobject")
+fs.DeleteFile(TEMP & "\vmrun_temp\VMwareVMs2Resume.txt"), True
+' remove empty folder structure through a trick with robocopy
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run Chr(34) & SYSTEMROOT & "\system32\robocopy.exe" & Chr(34) & " " & Chr(34) & TEMP & "\vmrun_temp" & Chr(34) & " " & Chr(34) & TEMP & "\vmrun_temp" & Chr(34) & " /s /move", 0, True
+' build new folder structure
+oFolder = TEMP & "\vmrun_temp\test"
+BuildFullPath oFolder
+Sub BuildFullPath(ByVal oFolder)
+  If Not objFSO.FolderExists(oFolder) Then
+    BuildFullPath objFSO.GetParentFolderName(oFolder)
+    objFSO.CreateFolder oFolder
+  End If
+End Sub
+' export active VMs list in a file
+path = TEMP & "\vmrun_temp\VMwareVMs2Resume.txt"		'Ausgabedatei
+Set colItems = CreateObject("Scripting.FileSystemObject")
+Set objFile = colItems.CreateTextFile(path, True)
+Set objShell = CreateObject("WScript.Shell")
+Set key = objShell.Exec(RIGHTHERE & "vmrun\vmrun.exe list")			'Befehl, dessen Antwort abgefangen wird
+Set oShell = key.StdOut
+While Not oShell.AtEndOfStream
+   strFirstLine = oShell.ReadLine
+   If InStr(strFirstLine,"vmx") Then				'Inhaltsfilter zum Schreiben in Datei
+       'msgbox strFirstLine
+       objFile.WriteLine(strFirstLine)
+' suspend active VM
+       Set objShell = CreateObject("WScript.Shell")
+       objShell.Run Chr(34) & RIGHTHERE & "vmrun\vmrun.exe" & Chr(34) & " suspend "  & Chr(34) & strFirstLine & Chr(34), 0, True
+   End If
+Wend
+objFile.Close
+
 
 ' Starte Grafikkarte neu
 Set objShell = CreateObject("WScript.Shell")
@@ -1341,6 +1376,9 @@ Sleep "5000"	'Sleep-Modus exklusiv für "PScript.exe" (= Portable VBS)
 WScript.Sleep "5000"	'Sleep-Modus für windowseigenen Script-Host "wscript.exe" und "cscript.exe"
 Set objShell = CreateObject("WScript.Shell")
 objShell.Run Chr(34) & AMDPath & "cncmd.exe" & Chr(34) & " hide launcher", 0, True
+Sleep "500"	'Sleep-Modus exklusiv für "PScript.exe" (= Portable VBS)
+WScript.Sleep "500"	'Sleep-Modus für windowseigenen Script-Host "wscript.exe" und "cscript.exe"
+Set objShell = CreateObject("WScript.Shell")
 objShell.Run Chr(34) & AMDPath & "cncmd.exe" & Chr(34) & " exit launcher", 0, True
 End if
 End if
@@ -1348,6 +1386,26 @@ End if
 
 
 
+' --- Stelle gespeicherte pausierte VMware-VMs wieder her
+' restart remembered VMs
+path = TEMP & "\vmrun_temp\VMwareVMs2Resume.txt"		'Ausgabedatei
+Set objfso = CreateObject("Scripting.FileSystemObject")
+Set objFile = objfso.OpenTextFile(path)
+Do Until objFile.AtEndOfStream
+  'msgbox objFile.ReadLine
+       Set objShell = CreateObject("WScript.Shell")
+       objShell.Run Chr(34) & RIGHTHERE & "vmrun\vmrun.exe" & Chr(34) & " start "  & Chr(34) & objFile.ReadLine & Chr(34), 0, True
+Loop
+objFile.Close
+' delete txt file
+Set fs = CreateObject("Scripting.Filesystemobject")
+fs.DeleteFile(TEMP & "\vmrun_temp\VMwareVMs2Resume.txt"), True
+' remove empty folder structure through a trick with robocopy
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run Chr(34) & SYSTEMROOT & "\system32\robocopy.exe" & Chr(34) & " " & Chr(34) & TEMP & "\vmrun_temp" & Chr(34) & " " & Chr(34) & TEMP & "\vmrun_temp" & Chr(34) & " /s /move", 0, True
+
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run Chr(34) & AMDPath & "cncmd.exe" & Chr(34) & " hide launcher", 0, True
 
 End if	' Überprüfen der ausstehenden GPU-Skalierung abgeschlossen
 
