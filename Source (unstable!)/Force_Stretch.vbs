@@ -13,7 +13,7 @@ Dim objAllUsersProgramsFolder, strAllUsersProgramsPath, str, objfolder, objFolde
 Dim sProcessName, sComputer, oWmi, colProcessList, Repeater, objFile, objReg, objSystemInfo, strHostname, startexe, objstream, strArgs, target_folder, fs, TEMP, USERPROFILE, ALLUSERSPROFILE, LOCALAPPDATA, SYSTEMROOT, RIGHTHEREnoBACKSLASH, desktopPath, link, filesys, PARENT_RIGHTHERE, strRoot, strModify, shell, FULLSCRIPTNAME, SCRIPTFILENAME, key, output, gameexe, RIGHTHEREDoubleSlash, XPmode, exelostbox, KompatibilitaetValue, ScriptingHostProcessName, oReg, strKeyPath, linkname, linkname2, linkname3, linkname4, linkname5, PARENT_RIGHTHEREDoubleSlash, search, skriptfilename, iconpfad, strValueName, dwValue, AlleRunasRobEintraege, NeueRunasRobEintraege
 dim ResetteRegistrySchluessel, NeuerStringName_1, NeuerStringWert_1, NeuerStringName_2, NeuerStringWert_2, NeuerStringName_3, NeuerStringWert_3, NeuerStringName_4, NeuerStringWert_4, NeuerStringName_5, NeuerStringWert_5, NeuerDwordName_1, NeuerDwordWert_1, NeuerDwordName_2, NeuerDwordWert_2, NeuerDwordName_3, NeuerDwordWert_3, NeuerDwordName_4, NeuerDwordWert_4, NeuerDwordName_5, NeuerDwordWert_5, Aktiviere_HKCU, Aktiviere_HKLM, strValue, Scriptplayer, DeleteAproDings, strContents, strFirstLine, strNewContents, Aktiviere_ALL_HKCU, oNetwork, NeuerStringWert_1A, NeuerStringWert_2A, NeuerStringWert_3A, NeuerDwordWert_1A, NeuerDwordWert_2A, NeuerDwordWert_3A, drive, GetDriveLetter, label, labelfilename ,mount_disc, GetDriveLetterRaw, Resolution, RIGHTHEREDoubleSlashNoBackslash, WindowsVersionName, WMI, OSs, OS, dtmConvertedDate, objOperatingSyst, value, NewStringWindowsVersion, MajorWindowsVersion, objArgsPScript, objArgsWScript, objArgsCScript, objArgs, MitParameterGestartet, ArgumentTotal, Arg, f, app, ProzessUNDTitelOffen, ProzessUNDPfadOffen, ExternalPathCheck, TitleCheck, ProzessEgal_PfadTitle_Warten, AufAlleProzesseVBSpfadWarten, TempFolderName, BenutzerAusListe, infobox, USERDOMAIN, LASTSHOWEDUSER
 dim LastResolutionShowed, AllResolutionList, AndereAufloesung, Mindestbreite, Mindesthoehe, Seitenverhaeltnis, Result, Aufloesungstest, Horizontale, Vertikale, AufloesungCheckpoint, AufloesungAlternative, AufloesungAlternativeCheckpoint, FullPath, arr, dir, path, Counter, pReg, qReg, rReg, sReg, objRegistry, sKeyPath, sSubkey, tSubkey, uSubkey, oSubkey, pSubkey, aSubKeys, bSubKeys, cSubKeys, dSubKeys, eSubKeys, sTmpValueName, sTmpKeyName1, sTmpKeyName2, sTmpKeyName3, values, Return, Log, logpath, logSubkey, logvalues, bArray, BinaryPositionNumberToChange, BinaryReplacement, AMDPath, ScalingProzedurNotwendig
-dim ColOSs, OSType, service, AppName, Process, AppName2, strDelete, arrProcesses, arrWindowTitles, i, intProcesses, strProcList, TITLENAME2KILL, Informationsbox, strApplication, colItems, ProcessName, Apptitle, objApp, PID, ProcessPfad, nPos, strList, p, q, strKonto, strFileName
+dim ColOSs, OSType, service, AppName, Process, AppName2, strDelete, arrProcesses, arrWindowTitles, i, intProcesses, strProcList, TITLENAME2KILL, Informationsbox, strApplication, colItems, ProcessName, Apptitle, objApp, PID, ProcessPfad, nPos, strList, p, q, strKonto, strFileName, NvidiaTest_1, NvidiaTest_2
 
 
 
@@ -507,10 +507,25 @@ If Not (isnull(aSubKeys)) Then
 	    	path = sTmpKeyName1
 		BinaryPositionNumberToChange = 9
 		BinaryReplacement = 0		'00 in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
+	    	oReg.GetDwordValue cHKLM, path, "ScalingConfig", bArray	' Neue Methode von Nvidia (Dword-Wert: 0=Anzeige, 1=GPU)
+		if bArray = 0 then
+		NvidiaTest_1 = "NeueMethodeDwordKorrekt"
+		End if
+		if bArray = 1 then	'Falls "ScalingConfig" ein DWORD-Wert ist und den Wert 1 hat
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+		Return = oReg.SetDwordValue(cHKLM, path, "ScalingConfig", 0)
+			if errorlevel = 0 then
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+			NvidiaTest_2 = "Aus"
+			End If
+		Else	'schaue stattdessen nach Binary-Eintrag
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	 'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -524,6 +539,7 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
@@ -537,8 +553,7 @@ If Not (isnull(aSubKeys)) Then
 		BinaryReplacement = 236		'ec in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	 'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -552,11 +567,15 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
 	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
 	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+		End if	    ' Prüfung, ob NVIDIA Dword oder Binary Eintrag benutzt, abgeschlossen
+		NvidiaTest_1 = ""
+		NvidiaTest_2 = ""
 
 
 
@@ -591,10 +610,25 @@ If Not (isnull(aSubKeys)) Then
 	    	path = sTmpKeyName1
 		BinaryPositionNumberToChange = 9
 		BinaryReplacement = 0		'00 in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
+	    	oReg.GetDwordValue cHKLM, path, "ScalingConfig", bArray	' Neue Methode von Nvidia (Dword-Wert: 0=Anzeige, 1=GPU)
+		if bArray = 0 then
+		NvidiaTest_1 = "NeueMethodeDwordKorrekt"
+		End if
+		if bArray = 1 then	'Falls "ScalingConfig" ein DWORD-Wert ist und den Wert 1 hat
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+		Return = oReg.SetDwordValue(cHKLM, path, "ScalingConfig", 0)
+			if errorlevel = 0 then
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+			NvidiaTest_2 = "Aus"
+			End If
+		Else	'schaue stattdessen nach Binary-Eintrag
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	 'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -608,6 +642,7 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
@@ -621,8 +656,7 @@ If Not (isnull(aSubKeys)) Then
 		BinaryReplacement = 236		'ec in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	 'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -636,11 +670,15 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
 	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
 	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+		End if	    ' Prüfung, ob NVIDIA Dword oder Binary Eintrag benutzt, abgeschlossen
+		NvidiaTest_1 = ""
+		NvidiaTest_2 = ""
 
 
 
@@ -674,10 +712,25 @@ If Not (isnull(aSubKeys)) Then
 	    	path = sTmpKeyName1
 		BinaryPositionNumberToChange = 9
 		BinaryReplacement = 128		'80 in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
+	    	oReg.GetDwordValue cHKLM, path, "ScalingConfig", bArray	' Neue Methode von Nvidia (Dword-Wert: 0=Anzeige, 1=GPU)
+		if bArray = 0 then
+		NvidiaTest_1 = "NeueMethodeDwordKorrekt"
+		End if
+		if bArray = 1 then	'Falls "ScalingConfig" ein DWORD-Wert ist und den Wert 1 hat
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+		Return = oReg.SetDwordValue(cHKLM, path, "ScalingConfig", 0)
+			if errorlevel = 0 then
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+			NvidiaTest_2 = "Aus"
+			End If
+		Else	'schaue stattdessen nach Binary-Eintrag
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -691,6 +744,7 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
@@ -704,8 +758,7 @@ If Not (isnull(aSubKeys)) Then
 		BinaryReplacement = 108		'6c in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -719,11 +772,15 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
 	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
 	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+		End if	    ' Prüfung, ob NVIDIA Dword oder Binary Eintrag benutzt, abgeschlossen
+		NvidiaTest_1 = ""
+		NvidiaTest_2 = ""
 
 
 
@@ -758,10 +815,25 @@ If Not (isnull(aSubKeys)) Then
 	    	path = sTmpKeyName1
 		BinaryPositionNumberToChange = 9
 		BinaryReplacement = 128		'80 in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
+	    	oReg.GetDwordValue cHKLM, path, "ScalingConfig", bArray	' Neue Methode von Nvidia (Dword-Wert: 0=Anzeige, 1=GPU)
+		if bArray = 0 then
+		NvidiaTest_1 = "NeueMethodeDwordKorrekt"
+		End if
+		if bArray = 1 then	'Falls "ScalingConfig" ein DWORD-Wert ist und den Wert 1 hat
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
+		set oShell = CreateObject("WScript.Shell")
+		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn ace -ace " & Chr(34) & "n:S-1-5-32-544;p:full" & Chr(34), 0, true
+		Return = oReg.SetDwordValue(cHKLM, path, "ScalingConfig", 0)
+			if errorlevel = 0 then
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+			NvidiaTest_2 = "Aus"
+			End If
+		Else	'schaue stattdessen nach Binary-Eintrag
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -775,6 +847,7 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
@@ -788,8 +861,7 @@ If Not (isnull(aSubKeys)) Then
 		BinaryReplacement = 108		'6c in hexadezimal ist das Ziel! (Angabe muss erfolgen: ohne Anführungsstriche = dezimal!)
 	    	oReg.GetBinaryValue cHKLM, path, "ScalingConfig", bArray
 	   	'msgbox bArray(BinaryPositionNumberToChange - 1)	' Erste Zahl ist auszulesene Binary-Position und zweite korrigiert einen Darstellungsfehler
-	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement Then
-	    	ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
+	    	If not bArray(BinaryPositionNumberToChange - 1) = BinaryReplacement AND not NvidiaTest_1 = "NeueMethodeDwordKorrekt" AND not NvidiaTest_2 = "Aus" Then
 		set oShell = CreateObject("WScript.Shell")
 		oShell.Run "SetACL.exe" & " -on HKEY_LOCAL_MACHINE\" & sTmpValueName & " -ot reg -actn setowner -ownr " & Chr(34) & "n:S-1-5-32-544" & Chr(34), 0, true
 		set oShell = CreateObject("WScript.Shell")
@@ -803,11 +875,15 @@ If Not (isnull(aSubKeys)) Then
 
 	    	If (Return = 0) And (Err.Number = 0) Then
     	    		'msgbox "Binary value added successfully"
+	    		ScalingProzedurNotwendig = "Ja" 	' "Muss die Skalierung ändern."
 	    		Else
     	    		' An error occurred
     	    		'msgbox "Binary could not be added!"
 	    	End If	    'Meldung, ob Binärwert in Registry geschrieben wurde, wurde ausgegeben
 	    	End if	    ' Prüfung, ob Skalierung geändert werden muss, abgeschlossen
+		End if	    ' Prüfung, ob NVIDIA Dword oder Binary Eintrag benutzt, abgeschlossen
+		NvidiaTest_1 = ""
+		NvidiaTest_2 = ""
 
 
 
