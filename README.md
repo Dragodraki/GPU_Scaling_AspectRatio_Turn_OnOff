@@ -20,7 +20,7 @@ Short form:
 Long explanation: 
 
 For your own safety, I strongly recommend to use only the ready EXE of the latest release. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
-The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed) and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
+The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed), heavy flickering Sticky-Notes in Windows 7 and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
 
 But now let's focus to that piece of code:
 It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. 
