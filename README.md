@@ -1,3 +1,6 @@
+# *Info: New greatly improved version to be released soon!*
+<br/>
+
 # What for is "GPU_Scaling_AspectRatio_Turn_OnOff"?
 Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether you use a GPU from Nvidia, AMD or Intel and independent of whether full driver manager software is installed or the driver only.
 
