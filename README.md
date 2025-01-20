@@ -5,10 +5,10 @@ Change the scaling mode from your Intel/AMD/NVIDIA graphic card without the GUI.
 
 | Name | Download |
 :-------------------------:|:-------------------------:
-Scaling by Display(s) - Fullscreen | - |
-Scaling by GPU - Aspect-Ratio.exe | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="45%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Activate.GPU-Scaling.Aspect.Ratio.exe)
-Scaling by GPU - Center | - |
-Scaling by GPU - Fullscreen | - |
+Scaling by Display(s) - Fullscreen | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="45%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.Display.s.-.Fullscreen.exe) |
+Scaling by GPU - Aspect-Ratio.exe | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="45%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Aspect-Ratio.exe)
+Scaling by GPU - Center | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="45%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Center.exe) |
+Scaling by GPU - Fullscreen | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="45%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Fullscreen.exe) |
 
 <br>
 
