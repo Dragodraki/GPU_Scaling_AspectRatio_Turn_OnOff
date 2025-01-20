@@ -34,8 +34,8 @@ Long explanation:
 For your own safety, I strongly recommend to use only the ready EXE of the latest release. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
 The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed), heavy flickering Sticky-Notes in Windows 7 and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
 
-But now let's focus to that piece of code:
-It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. 
+But now let's focus to that piece of code:<br/>
+It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. <br/>
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
 One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
@@ -71,6 +71,7 @@ Additionally there are a few tools that saves you from suffering from unwanted s
 SPECIAL THANKS
 -------------------------------
 I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad, Robert D., Riemersma Jr, Helge Klein, Rama Krishna, Corey Womack and Sordum team! Without your helpful tools my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
+<br/>
 Keep spirit up, friends - your work is appreciated!
 
 -------------------------------
