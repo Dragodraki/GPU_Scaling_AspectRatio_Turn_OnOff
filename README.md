@@ -12,11 +12,13 @@ Scaling by GPU - Fullscreen | [<img src="https://user-images.githubusercontent.c
 Silent mode | Parameter: /quiet | For automation (e.g. for administrators) - works for all four modes |
 
 <br>
+<br>
 
 Many people said this wouldn't be possible - here I am to prove they were wrong, thanks to low-level ;)
 
 <img src="https://github.com/user-attachments/assets/df554512-60d1-4533-98d3-fd1734eb8372" width="90%"></img> 
 
+<br>
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
