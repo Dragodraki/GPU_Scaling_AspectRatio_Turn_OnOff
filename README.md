@@ -17,8 +17,8 @@ Short form:
 - Please only work with the latest release and NOT older releases NOR the Source (may crash your system and cause data loss - I'm serious)!
 - Don't re-upload with your name as programmer.
 - Don't sell it as product!
-+ Commcercial usage is allowed ;)
-+ Free Distribution to friends or strangers is allowed, even wanted ;)
+- Commcercial usage is allowed ;)
+- Free Distribution to friends or strangers is allowed, even wanted ;)
 
 
 Long explanation: 
