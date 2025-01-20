@@ -9,6 +9,7 @@ Scaling by Display(s) - Fullscreen | [<img src="https://user-images.githubuserco
 Scaling by GPU - Aspect-Ratio.exe | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="90%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Aspect-Ratio.exe) | On your physical computer - this provides the best experience for games and 3D renderer computers (home users with older computers are advised to this too)
 Scaling by GPU - Center | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="90%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Center.exe) | Only if your monitor (that square thing before your nose) is too huge (or too near) before your eyes to overwatch the whole screen, otherwise I strongly recommend against it |
 Scaling by GPU - Fullscreen | [<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="90%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Scaling.by.GPU.-.Fullscreen.exe) | Simply never, because it helds no real advantages over GDI fullscreenized screen, plus it sucks for KVM switches |
+Silent mode | /quiet parameter | For automation (e.g. for administrators)
 
 <br>
 
