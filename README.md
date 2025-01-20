@@ -43,6 +43,7 @@ One word please on the topic of distribution, rights and usage: My tool includes
 <br/>
 ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS OR DAMAGE TO YOUR SYSTEM BY MY SOFTWARE I ASSUME NO LIABILITY!
 <br/>
+<br/>
 
 -------------------------------
 WHY I MADE THIS SCRIPT?
