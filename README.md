@@ -3,7 +3,7 @@ Change the scaling mode from your Intel/AMD/NVIDIA graphic card without the GUI.
 (Release Date: 20.01.2025, Publisher: Dragodraki alias Dreamland, Notice: no fork) 
 <br/>
 
-[<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="15%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Activate.GPU-Scaling.Aspect.Ratio.exe)
+[<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="15%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Activate.GPU-Scaling.Aspect.Ratio.exe) Scaling by GPU - Aspect-Ratio.exe
 <br>
 
 
