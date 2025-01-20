@@ -1,4 +1,4 @@
-# GPU/Display scaling changer
+# GPU scaling changer (four modes)
 Change the scaling mode from your Intel/AMD/NVIDIA graphic card without the GUI. <br/>
 (Release Date: 20.01.2025, Publisher: Dragodraki alias Dreamland, Notice: no fork) 
 <br/>
@@ -12,11 +12,7 @@ Scaling by GPU - Fullscreen | [<img src="https://user-images.githubusercontent.c
 
 <br>
 
-# What for is "GPU_Scaling_AspectRatio_Turn_OnOff"?
-Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether you use a GPU from Nvidia, AMD or Intel and independent of whether full driver manager software is installed or the driver only.
-
 Many people said this wouldn't be possible - here I am to prove they were wrong ;)
-
 
 <img src="https://github.com/user-attachments/assets/df554512-60d1-4533-98d3-fd1734eb8372" width="90%"></img> 
 
@@ -63,6 +59,8 @@ And this means that my app is NOT able to replace your graphics card manufacture
 Additionally there are a few tools that saves you from suffering from unwanted side effects:
 - "DesktopOK" saves the position of all desktop icons before reloading GPU and restoring after that (I don't rely on Windows since some graphic cards infere with Microsoft and the consequence would have been all icons placed on the left side and had to be arranged manually - bah! Thanks to teams from DesktopOK we are ahead of this.
 - "SetACL" helps to unlock denied registry writing permissions. Why? ...I would like to know that too. But as long as TrustedInstaller keep blocking by default half of the (less-important) registry part, we need to unlock the section for gpu display entries first before editing them. Without, settings wouldn't be applied.
+- "RegSvrEx" allows us to register VBScript terminal for the durance of the running process
+- "VImage" makes possible the SplashScreen you can see when running one of the four binaries in non-silent/normal mode
 - "PScript" is an alternative for the microsoft scripting host (player for VBS files). It works great on newer operating systems like Windows Vista and higher. FOr Windows 2000 and XP the old wscript.exe from microsoft will be used.
 - "Custom Resolution Utility (CRU)" - yeah - thats mostly the key function for the undeniable advantage that your computer doesn't need to reboot after changing your graphic cards driver settings. Of course, AMD, Intel and Nvidia could bypass them easily as they are the inventor od their driver and know some seret approaches to them we'll never get to explained. But CRU has the power to adapt it's behaviour in disable and enable your graphic card in device manager from command line. But instead of manual doing they do it a little safer so there is no risk the display won't awake from blackness after this. For your information: Until now, no other free tool exists that can perform that!
 - "Rexplorer" preempts problems related to Start menu/app windows/taskbar by killing all processes called "explorer.exe" and restart them with restoring all instances of Windows-Explorer / system control. On all OS before Windows 8 it interrupts also any file copying. How lucky we must be, start menu freezing only happends on Windows 10, so Rexplorer don't harm any open copy process (it only closes the progress window). On older OS my App don't use Rexplorer.
@@ -71,12 +69,12 @@ Additionally there are a few tools that saves you from suffering from unwanted s
 -------------------------------
 SPECIAL THANKS
 -------------------------------
-I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad, Robert D., Riemersma Jr, Helge Klein and Sordum team! Without your helpful tools my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
+I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad, Robert D., Riemersma Jr, Helge Klein, Rama Krishna, Corey Womack and Sordum team! Without your helpful tools my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
 
 -------------------------------
 SUPPORTED GPUs
 -------------------------------
-Note: Proper gpu driver needs to be installed. And OS older than Windows Vista haven't prerequisites for scaling with GPU at all, so doesn't my app.
+Note: Proper gpu driver needs to be installed. Any OS older than Windows Vista haven't prerequisites for scaling with GPU at all, so doesn't profit from my app, even if it appears to run (it means there is no effect on Windows 2000/XP at all).
 
 - ( work ) AMD Catalyst Control (as long as a newer driver is used for it, this old interface does not offer scalable drivers itself
 - ( work ) AMD Radeon
@@ -84,10 +82,11 @@ Note: Proper gpu driver needs to be installed. And OS older than Windows Vista h
 - ( work ) Intel Graphics Control Panel (old interface)
 - ( work ) Intel Graphics Control Panel (new interface)
 - ( work ) Nvidia Control Panel (old interface)
-- ( work ) Nvidia Control Panel (new interface - at least until 2021)
+- ( work ) Nvidia Control Panel (new interface - at least until 2024)
 
 -------------------------------
 USAGE
 -------------------------------
-1. Download the release (or the EXE files from branch) and execute it (need admin rights).
-2. Ready - be happy about fixed aspect ratio :D
+1. Download the release(s) and execute it (need admin rights).
+   (use the parameter "/quiet" to skip dialog and SplashScreen)
+3. Ready - be happy about fixed scaling mode :D
