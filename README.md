@@ -13,7 +13,7 @@ Silent mode | Parameter: /quiet | For automation (e.g. for administrators) - wor
 
 <br>
 
-Many people said this wouldn't be possible - here I am to prove they were wrong ;)
+Many people said this wouldn't be possible - here I am to prove they were wrong, low-level thanks ;)
 
 <img src="https://github.com/user-attachments/assets/df554512-60d1-4533-98d3-fd1734eb8372" width="90%"></img> 
 
