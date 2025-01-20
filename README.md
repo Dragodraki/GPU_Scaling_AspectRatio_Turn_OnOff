@@ -1,5 +1,11 @@
-# *Info: New greatly improved version to be released soon!*
+# Scaling by GPU
+Change the scaling mode from your Intel/AMD/NVIDIA graphic card without the GUI. <br/>
+(Release Date: 20.01.2025, Publisher: Dragodraki alias Dreamland, Notice: no fork) 
 <br/>
+
+[<img src="https://user-images.githubusercontent.com/76787321/197257488-1b7aa8e9-9b6f-4600-949e-8ff477cb4bf4.png" width="23%"></img>](https://github.com/Dragodraki/GPU_Scaling_AspectRatio_Turn_OnOff/releases/latest/download/Activate.GPU-Scaling.Aspect.Ratio.exe)
+<br>
+
 
 # What for is "GPU_Scaling_AspectRatio_Turn_OnOff"?
 Should be able to toggle GPU-Scaling (Aspect-Ratio vs. Stretch) no mind whether you use a GPU from Nvidia, AMD or Intel and independent of whether full driver manager software is installed or the driver only.
