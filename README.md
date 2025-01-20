@@ -1,4 +1,4 @@
-# Scaling by GPU
+# GPU/Display scaling changer
 Change the scaling mode from your Intel/AMD/NVIDIA graphic card without the GUI. <br/>
 (Release Date: 20.01.2025, Publisher: Dragodraki alias Dreamland, Notice: no fork) 
 <br/>
