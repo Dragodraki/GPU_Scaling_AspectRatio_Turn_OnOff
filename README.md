@@ -39,11 +39,11 @@ It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to a
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
 One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
-<br/>
+
 <br/>
 ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS OR DAMAGE TO YOUR SYSTEM BY MY SOFTWARE I ASSUME NO LIABILITY!
 <br/>
-<br/>
+
 -------------------------------
 WHY I MADE THIS SCRIPT?
 -------------------------------
