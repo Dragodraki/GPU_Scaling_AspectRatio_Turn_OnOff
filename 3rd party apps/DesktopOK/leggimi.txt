@@ -1,0 +1,3 @@
+Dalla versione: 4.24
+Dalla versione 4.24, in modo predefinito, il file DesktopOK.ini verrà creato nella cartella %APPDATA%/DesktopOK
+Per un uso portatile, crea o copia il file DesktopOK.ini nella cartella di lavoro di DesktopOK.

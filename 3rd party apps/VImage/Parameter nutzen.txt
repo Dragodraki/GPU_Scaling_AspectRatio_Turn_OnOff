@@ -1,0 +1,1 @@
+vimage.exe [Kompletter-Pfad-zur-Bilddatei] -clickThrough -alwaysOnTop -taskbarIcon

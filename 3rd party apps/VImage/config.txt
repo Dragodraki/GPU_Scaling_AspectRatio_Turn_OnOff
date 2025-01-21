@@ -1,0 +1,142 @@
+// General Settings
+OpenAtMousePosition = 0
+SmoothingDefault = 1
+Mipmapping = 1
+BackgroundForImagesWithTransparencyDefault = 0
+BackgroundColour = #4D000000
+TransparencyToggleValue = #BEFFFFFF
+ImageSizing = 3
+LimitImagesToMonitor = 3 // 0=NONE, 1=HEIGHT, 2=WIDTH, 3=AUTO
+PositionLargeWideImagesInCorner = 1 // ie: Desktop Wallpapers and Screenshots
+LoopImageNavigation = 0
+PreloadNextImage = 1 // when using the next/prev image buttons, the image after the one just loaded will be loaded as well
+ClearMemoryOnResetImage = 1 // when the Reset Image action is used, all textures/animations will be cleared from memory (except ones used for current image)
+ShowTitleBar = 0
+OpenSettingsEXE = 1 // if false, will open config.txt instead
+ListenForConfigChanges = 1 // vimage will reload settings automatically when they are changed.
+MinImageSize = 64 // if an image is smaller than this (in width or height) it will scaled up to it automatically
+SmoothingMinImageSize = 65 // images smaller than this will not have smoothing turned on (if 0, all images with use smoothing)
+ZoomSpeed = 2
+ZoomSpeedFast = 10
+MoveSpeed = 2
+MoveSpeedFast = 10
+MaxTextures = 80
+MaxAnimations = 8
+MaxTextureSize = 10000 // will cut up images into multiple textures if they are larger than this value
+SettingsAppWidth = 600
+SettingsAppHeight = 550
+DefaultSortBy = 0
+DefaultSortDir = 0
+
+CropToolFillColour = #78FFFFFF
+CropToolOutlineColour = #FF000000
+CropToolOutlineThickness = 2
+
+// Bindings
+Drag = MOUSELEFT
+Close = ESC, BACK
+OpenContextMenu = MOUSERIGHT
+PrevImage = 
+NextImage = 
+RotateClockwise = 
+RotateAntiClockwise = 
+Flip = 
+FitToMonitorHeight = 
+FitToMonitorWidth = 
+FitToMonitorAuto = 
+FitToMonitorAlt = 
+ZoomIn = 
+ZoomOut = 
+ZoomFaster = 
+ZoomAlt = 
+DragLimitToMonitorBounds = 
+ToggleSmoothing = 
+ToggleMipmapping = 
+ToggleBackgroundForTransparency = 
+ToggleLock = 
+ToggleAlwaysOnTop = 
+ToggleTitleBar = 
+PauseAnimation = SPACE
+PrevFrame = 
+NextFrame = 
+OpenSettings = 
+ResetImage = 
+OpenAtLocation = 
+Delete = 
+Copy = 
+CopyAsImage = 
+OpenDuplicateImage = 
+OpenFullDuplicateImage = 
+RandomImage = 
+MoveLeft = 
+MoveRight = 
+MoveUp = 
+MoveDown = 
+TransparencyToggle = 
+TransparencyInc = 
+TransparencyDec = 
+Crop = 
+UndoCrop = 
+ExitAll = SHIFT+ESC
+RerenderSVG = 
+
+// Context Menu
+ContextMenu =
+{
+	Close : CLOSE
+	-
+	Next : NEXT IMAGE
+	Previous : PREV IMAGE
+	Sort by
+	{
+		Name : SORT NAME
+		Date : SORT DATE
+		Date modified : SORT DATE MODIFIED
+		Date created : SORT DATE CREATED
+		Size : SORT SIZE
+		-
+		Ascending : SORT ASCENDING
+		Descending : SORT DESCENDING
+	}
+	-
+	Rotate right : ROTATE CLOCKWISE
+	Rotate left : ROTATE ANTICLOCKWISE
+	Flip : FLIP
+	Fit to height : FIT TO HEIGHT
+	Fit to width : FIT TO WIDTH
+	Smoothing : TOGGLE SMOOTHING
+	Always on top : ALWAYS ON TOP
+	Reset : RESET IMAGE
+	-
+	Edit : EDIT PAINT
+	Copy : COPY
+	Delete : DELETE
+	-
+	[filename.14] : OPEN FILE LOCATION
+	-
+	Settings : OPEN SETTINGS
+	vimage [version] : VISIT WEBSITE
+}
+ContextMenu_Animation =
+{
+	Pause/Play : TOGGLE ANIMATION
+	-
+}
+ContextMenu_Animation_InsertAtIndex = 2
+ContextMenu_ShowMargin = 0
+ContextMenu_ShowMarginSub = 1
+
+CustomActions =
+{
+	TOGGLE OVERLAY MODE : -toggleSync -clickThrough -alwaysOnTop -defaultTransparency -taskbarIcon
+	EDIT PAINT : %windir%\system32\mspaint.exe %f
+	EDIT PAINTDOTNET : "C:\Program Files\Paint.NET\PaintDotNet.exe" %f
+	TOGGLE TASKBAR : -taskbarToggle
+}
+CustomActionBindings =
+{
+	TOGGLE OVERLAY MODE : 
+	EDIT PAINT : 
+	EDIT PAINTDOTNET : 
+	TOGGLE TASKBAR : 
+}

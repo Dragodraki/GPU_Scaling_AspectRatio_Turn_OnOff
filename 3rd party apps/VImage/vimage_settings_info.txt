@@ -1,0 +1,2 @@
+vimage_settings.exe benötigt .NET Framework 4.5 oder höher als Voraussetzung.
+vimage.exe dagegen benötigt .NET Framework 4.0 oder höher als Voraussetzung.
