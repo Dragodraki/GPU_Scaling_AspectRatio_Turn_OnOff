@@ -45,7 +45,7 @@ These issues could happen (though very rarely in latest version). Without coding
 - Blackscreen alias graphics card does not output the image anymore
 - Heavy flickering Sticky-Notes in Windows 7
 - Crashed VMware virtual machines (since version 1.3 largely fixed)
-<a/> You're warned.
+<br/> You're warned.
 <br/>
 <br/>
 
