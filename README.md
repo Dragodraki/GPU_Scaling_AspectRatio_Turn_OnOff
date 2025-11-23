@@ -33,7 +33,7 @@ WARNING - AWARE WHAT YOU DO
 - Don't sell it as product!
 - Commcercial usage is allowed ;)
 - Free Distribution to friends or strangers is allowed, even wanted ;)
-
+<br/>
 
 -------------------------------
 KNOWN ISSUES:
@@ -45,6 +45,7 @@ The source is uploaded here mere on reason of log history. If you use or change 
 But now let's focus to that piece of code:<br/>
 It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. <br/>
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
+<br/>
 
 -------------------------------
 WARNING - AWARE WHAT YOU DO
@@ -61,6 +62,7 @@ WHY I MADE THIS SCRIPT?
 -------------------------------
 I tried to find a solution to make old games fitting the screen perfectly on new widescreen monitors without manually change it in AMD/Nvidia/Intel.
 For future I'd like to improve the code so thats work for mostly every great graphic manufacturer software.
+<br/>
 
 -------------------------------
 HOW IT WORKS TECHNICALLY:
@@ -79,6 +81,7 @@ Additionally there are a few tools that saves you from suffering from unwanted s
 - "Custom Resolution Utility (CRU)" - yeah - thats mostly the key function for the undeniable advantage that your computer doesn't need to reboot after changing your graphic cards driver settings. Of course, AMD, Intel and Nvidia could bypass them easily as they are the inventor od their driver and know some seret approaches to them we'll never get to explained. But CRU has the power to adapt it's behaviour in disable and enable your graphic card in device manager from command line. But instead of manual doing they do it a little safer so there is no risk the display won't awake from blackness after this. For your information: Until now, no other free tool exists that can perform that!
 - "Rexplorer" preempts problems related to Start menu/app windows/taskbar by killing all processes called "explorer.exe" and restart them with restoring all instances of Windows-Explorer / system control. On all OS before Windows 8 it interrupts also any file copying. How lucky we must be, start menu freezing only happends on Windows 10, so Rexplorer don't harm any open copy process (it only closes the progress window). On older OS my App don't use Rexplorer.
 - "vmrun" from VMware shouldn't named here actually since I have to use it only for taking prevention of a bug by VMware itself leads to heavy crashing it's VM's when running ToastyX "restart.exe" (reloads the GPU). But the software is very powerful when it comes to handle the VM's silently. Sorry about the short console window appearing, but to make it invisible would costs disproportionate too much effort for me right now (maybe in the future).
+<br/>
 
 -------------------------------
 SPECIAL THANKS
@@ -86,6 +89,7 @@ SPECIAL THANKS
 I'm so glad this project become so much smoothier because of your tools. Thank you Jordan Russell, Martijn Laan, ToastyX, Nenad, Robert D., Riemersma Jr, Helge Klein, Rama Krishna, Corey Womack and Sordum team! Without your helpful tools my VBS script never had a chance to be executed as standalone EXE and without: annoying reboots, pitiful icon rearrangements and regretting in using microsofts version vbs scripting host as like as unnecessary denied registry entries.
 <br/>
 Keep spirit up, friends - your work is appreciated!
+<br/>
 
 -------------------------------
 SUPPORTED GPUs
@@ -99,6 +103,7 @@ Note: Proper gpu driver needs to be installed. Any OS older than Windows Vista h
 - ( work ) Intel Graphics Control Panel (new interface)
 - ( work ) Nvidia Control Panel (old interface)
 - ( work ) Nvidia Control Panel (new interface - at least until 2024)
+<br/>
 
 -------------------------------
 USAGE
