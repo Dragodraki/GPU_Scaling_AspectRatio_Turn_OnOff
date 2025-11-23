@@ -64,6 +64,7 @@ WHY I MADE THIS SCRIPT?
 I tried to find a solution to make old games fitting the screen perfectly on new widescreen monitors without manually change it in AMD/Nvidia/Intel.
 For future I'd like to improve the code so thats work for mostly every great graphic manufacturer software.
 <br/>
+<br/>
 
 -------------------------------
 HOW IT WORKS TECHNICALLY:
