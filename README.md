@@ -46,7 +46,7 @@ KNOWN ISSUES:
 These issues could happen (though very rarely in latest version). Without coding an app combining every of the 3rd party vendors (which additionally could inflict copyright problems) I cannot do anything about them (and won't since I discontinued this project):
 - Frozen Windows taskbar/start menu/desktop in Windows 10+ (since version 1.3 largely fixed)
 - Mixed-up desktop icons (since DesktopOK included largely fixed)
-- Blackscreen alias graphics card does not output the image anymore
+- Blackscreen alias graphics card does not output the image anymore (never occurred until now, but just in advance)
 - Heavy flickering Sticky-Notes in Windows 7
 - Crashed VMware virtual machines (since version 1.3 largely fixed)
 <a/>
