@@ -39,12 +39,13 @@ WARNING - AWARE WHAT YOU DO
 KNOWN ISSUES:
 -------------------------------
 
-For your own safety, I strongly recommend to use only the ready EXE of the latest release.
-The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed), heavy flickering Sticky-Notes in Windows 7 and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
-
-But now let's focus to that piece of code:<br/>
-It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. <br/>
-After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
+These issues could happen (though very rarely in latest version). Without coding an app combining every of the 3rd party vendors (which additionally could inflict copyright problems) I cannot do anything about them (and won't since I discontinued this project):
+- Frozen Windows taskbar/start menu/desktop in Windows 10+ (since version 1.3 largely fixed)
+- Mixed-up desktop icons (since DesktopOK included largely fixed)
+- Blackscreen alias graphics card does not output the image anymore
+- Heavy flickering Sticky-Notes in Windows 7
+- Crashed VMware virtual machines (since version 1.3 largely fixed)
+You're warned.
 <br/>
 <br/>
 
