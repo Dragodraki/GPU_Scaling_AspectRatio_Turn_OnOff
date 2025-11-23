@@ -115,3 +115,4 @@ USAGE
 1. Download the release(s) and execute it (need admin rights).<br/>
    (use the parameter "/quiet" to skip dialog and SplashScreen)
 3. Ready - be happy about fixed scaling mode :D
+
