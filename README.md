@@ -35,15 +35,20 @@ WARNING - AWARE WHAT YOU DO
 - Free Distribution to friends or strangers is allowed, even wanted ;)
 
 
-DO NOT USE THE SINGLE VBS, IT LACKS OF : 
+-------------------------------
+KNOWN ISSUES:
+-------------------------------
 
-For your own safety, I strongly recommend to use only the ready EXE of the latest release. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
+For your own safety, I strongly recommend to use only the ready EXE of the latest release.
 The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed), heavy flickering Sticky-Notes in Windows 7 and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
 
 But now let's focus to that piece of code:<br/>
 It will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers. So you'll need admin rights to perform this action. Of course you can do it in the graphic card GUI manager without admin rights but only because there is a service installed it allows you to do so. <br/>
 After result, a reboot is required to take settings effect. But don't panic - there's a workaround fo this implemented via "Custom Resolution Utility (CRU)" by ToastyX. It restart all available graphic cards automatically. If you've a GPU GUI manager installed, you should see GPU-Scaling status changed and the mode "Aspect Ratio" / "Full screen" is chosen.
 
+-------------------------------
+WARNING - AWARE WHAT YOU DO
+-------------------------------
 One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
 
 <br/>
@@ -60,8 +65,7 @@ For future I'd like to improve the code so thats work for mostly every great gra
 -------------------------------
 HOW IT WORKS TECHNICALLY:
 -------------------------------
-The settings for the screen are managed by Windows as well as by drivers of the graphics card. The selected mode of enabled scaling (aspect-ratio/centered/full-screen) is always controlled by Windows without exception - this setting is always stored in the same place in the registry.
-The setting whether GPU scaling is enabled or disabled (GPU scaling versus display scaling) is up to the graphics card software or driver. Depending on whether the graphics card is from Nvidia/AMD/Intel and which driver/control center version is installed, this setting is located in a different place in the registry each time, which is not permanently defined.
+The settings for the screen are managed by Windows as well as by drivers of the graphics card. My software will change several registry entries under HKLM\SYSTEM and HKLM\SOFTWARE to apply these changes for various GPU manufacturer drivers according to the selected scaling mode. Whereas the setting to use aspect-ratio/centered/full-screen within GPU-Mode is always controlled by Windows solely and always in the same registry value, the altering between GPU scaling enabled or disabled (GPU scaling versus display scaling) is up to the graphics card software or driver. Depending on the graphics cards vendor (like Nvidia/AMD/Intel) and their driver version, the latters registry location is different.
 
 - My software does practically nothing else than to predefine the entries for scaling at the various places in the registry for the most popular graphics card manufacturers, so that the driver reads this entry and loads the appropriate setting - hence the reloading of the graphics card becomes so important.
 And this means that my app is NOT able to replace your graphics card manufacturer's driver, without GPU driver installed my app is useless. Nevertheless, finding out the places in the registry that are responsible for scaling was very difficult, especially since the AMD/Nvidia/Intel didn't want to help me develop this background app. So consider it a small milestone in screen history that it now works without the oh-so-great interface software from the big-name manufacturers.
