@@ -24,16 +24,18 @@ Many people said this wouldn't be possible - here I am to prove they were wrong,
 -------------------------------
 WARNING - AWARE WHAT YOU DO
 -------------------------------
-Short form:
-- Use the app at your own risk!
-- Please only work with the latest release and NOT older releases NOR the Source (may crash your system and cause data loss - I'm serious)!
-- Don't re-upload with your name as programmer.
+- In one sentence: It's classic FREEWARE for everyone
+- Everything in subfolder "3rd party apps" must NOT be copied without contribution or altered/hacked/decompiled (or similar)!
+- If you copy/fork my project, you have to name the authors from subfolder "3rd party apps"
+- Use the app at your own risk! I hold no liability or warranty for any damage the software might (or might not) cause!
+- In rare cases single apps (especially Windows Explorer, AMD Software, StickyNote, VMware) might crash/freeze by using it, though I added as much protection as I could to avoid it - that's why you absolutely MUST NOT USE OLDER VERSIONS but the latest!
+- Don't fork/re-upload with your name as programmer.
 - Don't sell it as product!
 - Commcercial usage is allowed ;)
 - Free Distribution to friends or strangers is allowed, even wanted ;)
 
 
-Long explanation: 
+DO NOT USE THE SINGLE VBS, IT LACKS OF : 
 
 For your own safety, I strongly recommend to use only the ready EXE of the latest release. The VBS itself and the third party applications are exactly tuned from each other and available for download as EXE file here.
 The source is uploaded here mere on reason of log history. If you use or change the source, it can happen that Windows freezes completely or the graphics card does not output the image anymore, resets your screen settings to default or 'just' messes up the desktop icons! Even when using the release in rarely cases leads to frozen start menu in Windows 10+ last until reboot (since version 1.2 largely fixed), heavy flickering Sticky-Notes in Windows 7 and crashed VMware virtual machines (since version 1.3 largely fixed). You're warned.
