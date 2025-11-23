@@ -26,13 +26,17 @@ WARNING - AWARE WHAT YOU DO
 -------------------------------
 - In one sentence: It's classic FREEWARE for everyone
 - Everything in subfolder "3rd party apps" must NOT be copied without contribution or altered/hacked/decompiled (or similar)!
-- If you copy/fork my project, you have to name the authors from subfolder "3rd party apps"
+- You have to follow the EULAs from the "3rd party apps"!
+- If you copy/fork my project, you have to name every author from subfolder "3rd party apps"
 - Use the app at your own risk! I hold no liability or warranty for any damage the software might (or might not) cause!
 - In rare cases single apps (especially Windows Explorer, AMD Software, StickyNote, VMware) might crash/freeze by using it, though I added as much protection as I could to avoid it - that's why you absolutely MUST NOT USE OLDER VERSIONS but the latest!
 - Don't fork/re-upload with your name as programmer.
 - Don't sell it as product!
 - Commcercial usage is allowed ;)
 - Free Distribution to friends or strangers is allowed, even wanted ;)
+<br/>
+ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS OR DAMAGE TO YOUR SYSTEM BY MY SOFTWARE I ASSUME NO LIABILITY !!!
+<br/>
 <br/>
 
 -------------------------------
@@ -51,16 +55,6 @@ You're warned.
 <br/>
 
 -------------------------------
-WARNING - AWARE WHAT YOU DO
--------------------------------
-One word please on the topic of distribution, rights and usage: My tool includes the VBS-script as it's main feature but need the help of third-party-apps like "DesktopOK", "Custom Resolution Utility (CRU)", "PScript" and "SetACL". They won't be listed in my Source folder because I'm not the inventor. Although my part is freeware it doesn't mean you are allowed to either sell the app (or parts of it) itself or repacking it and distribute it in your name - additionally does the terms of the third-party-apps applies to!
-
-<br/>
-ANY DISBEHAVIOUR AGAINST THESE RESTRICTIONS OR DAMAGE TO YOUR SYSTEM BY MY SOFTWARE I ASSUME NO LIABILITY !!!
-<br/>
-<br/>
-
--------------------------------
 WHY I MADE THIS SCRIPT?
 -------------------------------
 I tried to find a solution to make old games fitting the screen perfectly on new widescreen monitors without manually change it in AMD/Nvidia/Intel.
@@ -75,6 +69,11 @@ The settings for the screen are managed by Windows as well as by drivers of the 
 
 My software does practically nothing else than to predefine the entries for scaling at the various places in the registry for the most popular graphics card manufacturers, so that the driver reads this entry and loads the appropriate setting - hence the reloading of the graphics card becomes so important.
 And this means that my app is NOT able to replace your graphics card manufacturer's driver, without GPU driver installed my app is useless. Nevertheless, finding out the places in the registry that are responsible for scaling was very difficult, especially since the AMD/Nvidia/Intel didn't want to help me develop this background app. So consider it a small milestone in screen history that it now works without the oh-so-great interface software from the big-name manufacturers.
+
+
+-------------------------------
+CONTRIBUTION:
+-------------------------------
 
 Additionally there are a few tools that saves you from suffering from unwanted side effects:
 - "DesktopOK" (https://www.softwareok.com/?Download=DesktopOK) saves the position of all desktop icons before reloading GPU and restoring after that (I don't rely on Windows since some graphic cards infere with Microsoft and the consequence would have been all icons placed on the left side and had to be arranged manually - bah! Thanks to teams from DesktopOK we are ahead of this.
