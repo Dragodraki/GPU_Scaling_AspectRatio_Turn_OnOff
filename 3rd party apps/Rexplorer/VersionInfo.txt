@@ -1,0 +1,39 @@
+Author: BlueLife , Velociraptor
+www.sordum.org
+
+[###################]-- Restarts Explorer v1.7 --[###################]
+
+(Tuesday, 28 March 2023)
+------------
+Changelog:
+
+1.[ADDED] – /W parameter has been added.
+2.[ADDED] - Some code improvements
+
+[###################]-- Restarts Explorer v1.6 --[###################]
+
+(Wednesday, 24 November 2021)
+------------
+Changelog:
+
+1.[FIXED] – Conflict with 7-zip
+2.[ADDED] - Some code improvements
+
+[###################]-- Restarts Explorer v1.5 --[###################]
+
+(Wednesday, 25 November 2020)
+------------
+Changelog:
+
+1.[FIXED] – Some minor bugs
+2.[ADDED] - Some code improvements
+
+[###################]-- Restarts Explorer v1.4 --[###################]
+
+(Wednesday, 1 March , 2017)
+------------
+Changelog:
+
+1.[FIXED] – Some minor bugs
+2.[ADDED] - Some code improvements
+
