@@ -22,7 +22,7 @@ Many people said this wouldn't be possible - here I am to prove they were wrong,
 <br>
 
 -------------------------------
-WARNING - AWARE WHAT YOU DO
+LICENSE (FREEWARE)
 -------------------------------
 - In one sentence: It's classic FREEWARE for everyone
 - Everything in subfolder "3rd party apps" must NOT be copied without contribution or altered/hacked/decompiled (or similar)!
